@@ -1,4 +1,30 @@
-This is the distribution of Log4C (last updated 13 Nov 2006)
+
+log4c-extended
+==============
+
+This project is a fork from original log4c project with intention to
+extend its capabilities, while maintaining respect to its original
+design and style. In detail, it means that more appenders and more
+formatting styles are added.
+
+Community work and contributions from outside the owning organisation
+are welcome.
+
+Change log
+----------
+
+2012 Apr
+added UDP appender "upd"
+
+2011 Sep.
+added localtime layout "dated_local" (rcmadruga)
+
+log4c-extended is based on log4c release 1.2.1
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 * What is Log4C
 
