@@ -17,6 +17,7 @@ static const char version[] = "$Id$";
 #include <log4c/appender.h>
 #include <log4c/layout.h>
 #include <log4c/appender_type_rollingfile.h>
+#include <log4c/appender_type_udp.h>
 #include <log4c/rollingpolicy.h>
 #include <log4c/rollingpolicy_type_sizewin.h>
 #include <sd/error.h>
@@ -150,6 +151,8 @@ static int appender_load(log4c_rc_t* this, sd_domnode_t* anode)
     sd_domnode_t*     name   = sd_domnode_attrs_get(anode, "name");
     sd_domnode_t*     type   = sd_domnode_attrs_get(anode, "type");
     sd_domnode_t*     layout = sd_domnode_attrs_get(anode, "layout");
+    sd_domnode_t*     sip    = sd_domnode_attrs_get(anode, "serverip");
+    sd_domnode_t*     port   = sd_domnode_attrs_get(anode, "port");
     log4c_appender_t* app    = NULL;
     
     if (!name) {
@@ -207,7 +210,20 @@ static int appender_load(log4c_rc_t* this, sd_domnode_t* anode)
     }
 
     if (layout)
-	log4c_appender_set_layout(app, log4c_layout_get(layout->value));
+    log4c_appender_set_layout(app, log4c_layout_get(layout->value));
+
+    if(strcmp("udp", type->value) == 0)
+    {
+        if(sip && port)
+        {
+            log4c_udp_udata_t *udata;
+            udata = (log4c_udp_udata_t *)sd_calloc(1, sizeof(log4c_udp_udata_t));
+            strcpy(udata->remoteip, sip->value);
+            sscanf(port->value, "%d", &udata->port);
+            log4c_appender_set_udata(app, udata);
+            sd_debug("ip:%s port:%d", udata->remoteip, udata->port);	
+        }
+    }
 
     sd_debug("]");
 

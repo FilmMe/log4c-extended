@@ -57,7 +57,7 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgincludedir)"
 libLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(lib_LTLIBRARIES)
 liblog4c_la_DEPENDENCIES = ../sd/liblog4c_sd.la
-am__liblog4c_la_SOURCES_DIST = rc.c init.c appender_type_stream.c \
+am__liblog4c_la_SOURCES_DIST = rc.c init.c appender_type_udp.c appender_type_stream.c \
 	appender_type_stream2.c appender_type_syslog.c \
 	appender_type_mmap.c layout_type_basic.c layout_type_dated.c \
 	layout_type_dated_local.c \
@@ -68,7 +68,7 @@ am__liblog4c_la_SOURCES_DIST = rc.c init.c appender_type_stream.c \
 @WITH_ROLLINGFILE_TRUE@am__objects_1 = appender_type_rollingfile.lo \
 @WITH_ROLLINGFILE_TRUE@	rollingpolicy.lo \
 @WITH_ROLLINGFILE_TRUE@	rollingpolicy_type_sizewin.lo
-am_liblog4c_la_OBJECTS = rc.lo init.lo appender_type_stream.lo \
+am_liblog4c_la_OBJECTS = rc.lo init.lo appender_type_udp.lo appender_type_stream.lo \
 	appender_type_stream2.lo appender_type_syslog.lo \
 	appender_type_mmap.lo layout_type_basic.lo \
 	layout_type_dated.lo layout_type_basic_r.lo \
@@ -225,7 +225,7 @@ INCLUDES = \
 	-DLOG4C_RCPATH="\"$(sysconfdir)\""
 
 lib_LTLIBRARIES = liblog4c.la
-liblog4c_la_SOURCES = rc.c init.c appender_type_stream.c \
+liblog4c_la_SOURCES = rc.c init.c appender_type_udp.c appender_type_stream.c \
 	appender_type_stream2.c appender_type_syslog.c \
 	appender_type_mmap.c layout_type_basic.c layout_type_dated.c \
 	layout_type_dated_local.c \
@@ -250,6 +250,7 @@ pkginclude_HEADERS = \
 	layout_type_basic_r.h \
 	layout_type_dated_r.h \
 	layout.h \
+	appender_type_udp.h \
 	appender_type_stream.h \
 	appender_type_stream2.h \
 	appender_type_syslog.h \

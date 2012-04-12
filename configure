@@ -20117,7 +20117,7 @@ if test "${ac_cv_lib_pthread_pthread_mutex_init+set}" = set; then
   echo $ECHO_N "(cached) $ECHO_C" >&6
 else
   ac_check_lib_save_LIBS=$LIBS
-LIBS="$LIBS"
+LIBS="-lpthread  $LIBS"
 cat >conftest.$ac_ext <<_ACEOF
 /* confdefs.h.  */
 _ACEOF
@@ -20174,7 +20174,7 @@ fi
 echo "${ECHO_T}$ac_cv_lib_pthread_pthread_mutex_init" >&6; }
 if test $ac_cv_lib_pthread_pthread_mutex_init = yes; then
 
-                LIBS="$LIBS"
+                LIBS="$LIBS -lpthread"
 
 cat >>confdefs.h <<\_ACEOF
 #define WITH_ROLLINGFILE

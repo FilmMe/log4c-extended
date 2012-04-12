@@ -28,6 +28,7 @@ static const char version[] = "$Id$";
 #include <appender_type_syslog.h>
 #include <appender_type_mmap.h>
 #include <appender_type_rollingfile.h>
+#include <appender_type_udp.h>
 #include <rollingpolicy_type_sizewin.h>
 #include <layout_type_basic.h>
 #include <layout_type_dated.h>
@@ -54,6 +55,7 @@ static size_t nlayout_types = sizeof(layout_types) / sizeof(layout_types[0]);
 static const log4c_appender_type_t * const appender_types[] = {
     &log4c_appender_type_stream,
     &log4c_appender_type_stream2,
+    &log4c_appender_type_udp,
 #ifdef HAVE_MMAP
     &log4c_appender_type_mmap,
 #endif    

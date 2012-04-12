@@ -8,6 +8,7 @@ liblog4c_la_SOURCES = \
 	rc.c \
 	init.c \
 	appender_type_stream.c \
+	appender_type_udp.c \
 	appender_type_stream2.c \
 	appender_type_syslog.c \
 	appender_type_mmap.c \
@@ -47,6 +48,7 @@ pkginclude_HEADERS = \
 	layout_type_basic_r.h \
 	layout_type_dated_r.h \
 	layout.h \
+	appender_type_udp.h \
 	appender_type_stream.h \
 	appender_type_stream2.h \
 	appender_type_syslog.h \
