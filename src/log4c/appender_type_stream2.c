@@ -83,8 +83,7 @@ static int stream2_append(log4c_appender_t* this,
 	return(-1);
     }      
     
-    return fprintf(s2up->s2u_fp, "[%s] %s", log4c_appender_get_name(this),
-		   a_event->evt_rendered_msg);
+    return fprintf(s2up->s2u_fp, "%s", a_event->evt_rendered_msg);
 }
 
 /*******************************************************************************/

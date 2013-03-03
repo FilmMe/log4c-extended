@@ -36,8 +36,7 @@ static int stream_append(log4c_appender_t* this,
 {
     FILE* fp = log4c_appender_get_udata(this);
     
-    return fprintf(fp, "%s", log4c_appender_get_name(this),
-		   a_event->evt_rendered_msg);
+    return fprintf(fp, "%s", a_event->evt_rendered_msg);
 }
 
 /*******************************************************************************/
