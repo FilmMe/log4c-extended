@@ -8,7 +8,7 @@ Depends:
 Pre-Depends: 
 Recommends: 
 Suggests: 
-Installed-Size: 500Kb
+Installed-Size: 500
 Maintainer: filmme.tv <info@filmme.tv>
 Conflicts:
 Replaces: 
